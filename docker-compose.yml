@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: voice-of-customer-sentiment
+    ports:
+      - 8080:8080
+    environment:
+      - METRICS_TWITTER_HOST=http://172.16.111.86:3000/api/v1
+      - METRICS_TWITTER_STREAM=http://172.16.111.86:3000/api/v1
+      - METRICS_CHAT_HOST=http://172.16.111.86:3000/api/v1
+      - METRICS_CHAT_STREAM=http://172.16.111.86:3000/api/v1
+      - PRD_VERS=alpha
+      - DEFAULT_SOURCE=TWITTER
+      - TWITTER_ENABLE=true
+      - CHAT_APP_ENABLE=true

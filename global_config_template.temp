@@ -1,0 +1,12 @@
+_globalConfig = {
+  PRODUCTION_VRESION: '${prd_version}',
+  TWITTER_STATIC_ENDPOINT: '${twitter_host}',
+  TWITTER_STREAM_ENDPOINT: '${twitter_stream}',
+  CHAT_STATIC_ENDPOINT: '${chat_host}',
+  CHAT_STREAM_ENDPOINT: '${chat_stream}',
+  DEFAULT_SOURCE: '${default_source}',
+  SOURCE_ENABLE: {
+    TWITTER: ${twitter_enable},
+    CHAT_APP: ${chat_app_enable},
+  }
+}
