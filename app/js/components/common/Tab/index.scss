@@ -1,0 +1,34 @@
+.tvl-tab {
+  width: 100%;
+
+  .tvl-tab-header-wrapper {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    position: relative;
+    padding-bottom: 2px;
+    border-bottom: 1px solid black;
+
+    .tvl-tab-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .tab-underline-wrapper {
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      .tab-underline {
+        height: 7px;
+        transition: 200ms;
+        transition-timing-function: ease-out;
+      }
+    }
+  }
+
+  .tvl-tab-content-wrapper {
+    padding: 10px;
+  }
+}
