@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 
 import Root from './Root'
 import configureStore from './redux/configureStore'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = configureStore()
 const rootEl = document.getElementById('app')
