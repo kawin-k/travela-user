@@ -9,3 +9,5 @@ class FeatureTripList extends Component {
     )
   }
 }
+
+export default FeatureTripList
