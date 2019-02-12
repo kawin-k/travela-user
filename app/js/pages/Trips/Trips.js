@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import './index.scss'
 
-class Login extends Component {
+class Trips extends Component {
   render() {
     return (
-      <div className="login-page-container">
-        Login Page
+      <div className="trips-page-container">
+        Trips
       </div>
     )
   }
 }
 
-export default Login
+export default Trips
