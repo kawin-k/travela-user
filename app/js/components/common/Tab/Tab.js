@@ -1,5 +1,6 @@
 import React, { Component, Children } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import './index.scss'
 
@@ -17,11 +18,6 @@ class Tab extends Component {
       PropTypes.node,
       PropTypes.string,
     ]).isRequired,
-    width: PropTypes.number,
-  }
-
-  static defaultProps = {
-    width: 320,
   }
 
   state = {
@@ -40,10 +36,8 @@ class Tab extends Component {
     const underlineStyle = {
       transform: `translateX(${100 * selectedIndex}%)`,
       width: `calc(100% / ${children.length})`,
-      background: 'red',
+      backgroundColor: '#becad6',
     }
-
-    console.log(underlineStyle)
   
     return (
       <div className="tab-underline-wrapper">
@@ -53,18 +47,23 @@ class Tab extends Component {
   }
 
   renderTabHeader = () => {
-    const { children, width }= this.props
+    const { children, width } = this.props
+    const { selectedIndex } = this.state
 
     return (
       <div
         className="tvl-tab-header-wrapper"
-        style={{ width }}
       >
         {    
           Children.map(children, (child, index) => {
+            const isSelected = index === selectedIndex
+
             return (
               <div
-                className="tvl-tab-header"
+                className={classNames(
+                  'tvl-tab-header',
+                  { active: isSelected }
+                )}
                 onClick={() => this.onSelectTab(index)}
               >
                 {child.props.label}
