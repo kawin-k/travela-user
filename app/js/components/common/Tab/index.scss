@@ -1,0 +1,48 @@
+.tvl-tab {
+  width: 100%;
+
+  .tvl-tab-header-wrapper {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    position: relative;
+    padding: 16px 0;
+    border-bottom: 1px solid #becad6;
+    width: 100%;
+
+    .tvl-tab-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      font-size: 20px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-align: center;
+      color: #1c1868;
+      &.active {
+        color: #1e146d;
+        font-weight: bold;
+      }
+    }
+
+    .tab-underline-wrapper {
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
+      .tab-underline {
+        height: 4px;
+        transition: 200ms;
+        transition-timing-function: ease-out;
+      }
+    }
+  }
+
+  .tvl-tab-content-wrapper {
+    padding: 16px 32px;
+    min-height: 412px;
+  }
+}
