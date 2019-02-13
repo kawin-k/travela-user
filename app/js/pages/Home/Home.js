@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-
-import MainLayout from '../../components/layout/MainLayout'
-import { Tab } from '../../components/common'
-import { PillFilterList } from '../../components/feature'
+import { MainLayout } from '../../components/layout'
+import { ButtonCurve } from '../../components/common'
 import './index.scss'
 
 class Home extends Component {
@@ -12,11 +10,35 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home-page-container">
-        <MainLayout>
-          <h3>Travela</h3>
-        </MainLayout>
-      </div>
+      <MainLayout>
+        <div className="home-page-container">
+          <div className="container">
+            <div className="main-title">
+              Travel less<br />
+              Experience more<br />
+            </div>
+            <div className="sub-title">
+              Make every trip in Thailand meaningful with TRAVELA. Get adventurous and complete missions given to you in your travel destination.
+            </div>
+            <img className="main-image" src="/static/assets/images/home-cover-01.png" />
+            <ButtonCurve className="get-start-button">Get started</ButtonCurve>
+            <div className="how-to-title">
+              How to play
+            </div>
+            <div className="how-to-no-1">
+              1. Choose your travel destination
+            </div>
+            <img className="how-to-no-1-image" src="/static/assets/images/home-cover-02.png" />
+            <div className="how-to-no-2">
+              2. Complete mission
+            </div>
+            <img className="how-to-no-2-image" src="/static/assets/images/home-cover-03.png" />
+            <div className="how-to-no-3">
+              3. Level Up &amp; Earn Rewards
+            </div>
+          </div>
+        </div>
+      </MainLayout>
     )
   }
 }
