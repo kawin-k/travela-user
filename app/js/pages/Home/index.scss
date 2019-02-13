@@ -2,5 +2,59 @@
 
 .home-page-container {
   height: 100%;
-  
+  .container {
+    text-align: center;
+    .main-title {
+      margin-top: 60px;
+      color: #1e146d;
+      font-size: 28px;
+      line-height: 32px;
+    }
+    .sub-title {
+      margin-top: 20px;
+      color: #4860b4;
+      font-size: 15px;
+      line-height: 24px;
+    }
+    .main-image {
+      margin-top: 20px;
+      width: 90%;
+    }
+    .get-start-button {
+      margin-top: 20px;
+    }
+    .how-to-title {
+      margin-top: 40px;
+      color: #1e146d;
+      font-size: 28px;
+      line-height: 32px;
+    }
+    .how-to-no-1 {
+      margin-top: 20px;
+      color: #443bb3;
+      font-size: 20px;
+      line-height: 32px;
+    }
+    .how-to-no-1-image {
+      margin-top: 20px;
+      width: 70%;
+    }
+    .how-to-no-2 {
+      margin-top: 20px;
+      color: #443bb3;
+      font-size: 20px;
+      line-height: 32px;
+    }
+    .how-to-no-2-image {
+      margin-top: 20px;
+      width: 70%;
+    }
+    .how-to-no-3 {
+      margin-top: 20px;
+      margin-bottom: 50px;
+      color: #443bb3;
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
 }
