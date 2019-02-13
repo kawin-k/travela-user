@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-
+import { MainLayout } from '../../components/layout'
 import './index.scss'
 
 class Home extends Component {
   render() {
     return (
-      <div className="home-page-container">
-        HelloWorld
-      </div>
+      <MainLayout>
+        <div className="home-page-container">
+          Home
+        </div>
+      </MainLayout>
     )
   }
 }
