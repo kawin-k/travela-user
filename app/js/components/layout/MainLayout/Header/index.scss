@@ -1,3 +1,38 @@
 .header-container {
-  //ß
+  .navbar {
+    .navbar-brand {
+      font-weight: bold;
+      color: #202b59;
+      img {
+        margin-right: 6px;
+      }
+    }
+  }
+  ul.navbar-nav {
+    padding-top: 30px;
+    text-align: center;
+    .nav-item {
+      .nav-link, .facebook-logout-btn {
+        font-size: 20px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #1e146d;
+      }
+
+      .facebook-logout-btn {
+        padding-bottom: 54px;
+      }
+    }
+  }
+  .auth-button-wrapper {
+    .firebaseui-idp-button.firebaseui-idp-facebook {
+      border-radius: 24px;
+      background-color: #4860b4;
+      box-shadow: none;
+    }
+  }
 }
