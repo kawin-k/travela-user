@@ -1,0 +1,28 @@
+.card-trip-container {
+  max-width: 420px;
+  margin-bottom: 20px;
+  .card {
+    border: initial;
+    .card-img-top {
+      border-radius: 8px;
+    }
+    .card-body {
+      padding: 5px;
+    }
+  }
+  .point{
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 20px;
+    color: #443bb3;
+  }
+  .card-title {
+    color: #1e146d;
+    font-size: 14px;
+    line-height: 1.43;
+    font-weight: bold;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
