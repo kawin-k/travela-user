@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import { reducer as pingReducer, name as PingModule } from './modules/ping'
+import { reducer as tripReducer, name as TripModule } from './modules/trips'
 
 export default combineReducers({
-  [PingModule]: pingReducer,
+  [TripModule]: tripReducer,
 })

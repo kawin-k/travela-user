@@ -12,7 +12,7 @@ class FeatureTripList extends Component {
       variableWidth: true
     };
     const {
-      tripList = [1, 2, 3, 4],
+      trips,
     } = this.props
     return (
       <div className="feature-trip-list-container">
@@ -21,9 +21,15 @@ class FeatureTripList extends Component {
         </div>
         <Slider {...settings}>
           {
-            tripList.map((trip, index) => (
+            trips.map((trip, index) => (
               <div key={index}>
-                <CardFeatureTrip />
+                <CardFeatureTrip
+                  tripName={trip.name}
+                  expirationDate={'1 Jan 2020'}
+                  location={trip.keywords[0]}
+                  point={trip.totalPoint}
+                  srcImage={trip.coverPicture} 
+                />
               </div>
             ))
           }
