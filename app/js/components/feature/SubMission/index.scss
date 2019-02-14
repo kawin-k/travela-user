@@ -1,0 +1,42 @@
+.sub-mission-container {
+  margin-top: 5px;
+  display: flex;
+  .status-circle {
+    margin-top: 5px;
+    width: 15px;
+    height: 15px;
+    background-color: #ccdcff;
+    border-radius: 50%;
+    &.pass {
+      background-color: #21d3ad;
+    }
+    &.wait {
+      background-color: #ffb63d;
+    }
+    &.fail {
+      background-color: red;
+    }
+  }
+  .description {
+    margin-left: 10px;
+    .objective {
+      font-size: 16px;
+      color: #ccdcff;
+      &.pass {
+        color: #21d3ad;
+      }
+      &.wait {
+        color: #ffb63d;
+      }
+      &.fail {
+        color: red;
+      }
+    }
+    .point {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.5;
+      color: #443bb3;
+    }
+  }
+}

@@ -1,11 +1,14 @@
 import React from 'react'
+import { CardMission } from '../../'
 
 import './index.scss'
 
 const TripMissionList = () => {
   return (
     <div className="trip-mission-list-wrapper">
-      TripMissionList
+      <CardMission />
+      <CardMission />
+      <CardMission />
     </div>
   )
 }

@@ -1,0 +1,17 @@
+.progress-bar-container {
+  .content {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    .extra-point {
+      font-size: 14px;
+      line-height: 16px;
+      color: #445fba;
+    }
+    .mission {
+      font-size: 14px;
+      line-height: 16px;
+      color: #445fba;
+    }
+  }
+}

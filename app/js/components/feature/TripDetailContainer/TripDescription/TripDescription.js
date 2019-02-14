@@ -2,10 +2,10 @@ import React from 'react'
 
 import './index.scss'
 
-const TripDescription = () => {
+const TripDescription = ({description = 'trip description'}) => {
   return (
     <div className="trip-description-wrapper">
-      TripDescription
+      {description}
     </div>
   )
 }
