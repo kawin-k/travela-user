@@ -1,3 +1,4 @@
-import TripDetailContainer from './TripDetailContainer'
+import TripDescription from './TripDescription'
+import TripMissionList from './TripMissionList'
 
-export default TripDetailContainer
+export { TripDescription, TripMissionList }

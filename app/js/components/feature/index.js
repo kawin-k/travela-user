@@ -6,10 +6,11 @@ import LocationVerification from './LocationVerification'
 import PhotoVerification from './PhotoVerification'
 import PillFilter from './PillFilter'
 import PillFilterList from './PillFilterList'
+import ProgressBar from './ProgressBar'
 import SearchTrip from './SearchTrip'
 import ShareToFacebook from './ShareToFacebook'
-import TabMissionList from './TabMissionList'
-import TripDetailContainer from './TripDetailContainer'
+import Submission from './SubMission'
+import {TripDescription, TripMissionList}  from './TripDetailContainer'
 import TripList from './TripList'
 
 export {
@@ -21,9 +22,11 @@ export {
   PhotoVerification,
   PillFilter,
   PillFilterList,
+  ProgressBar,
   SearchTrip,
   ShareToFacebook,
-  TabMissionList,
-  TripDetailContainer,
+  Submission,
+  TripDescription,
+  TripMissionList,
   TripList,
 }
