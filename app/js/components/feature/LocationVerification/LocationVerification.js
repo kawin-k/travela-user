@@ -39,8 +39,6 @@ const MyMapComponent = compose(
             icon={{
               url: '/static/assets/images/current-position.png',
               scaledSize: new google.maps.Size(24, 24),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(0, 0)
             }}
             position={props.currentLocation}
           />

@@ -1,0 +1,24 @@
+.photo-verification-container {
+  margin: 10px;
+
+  .photo-verification-wrapper {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dotted #ccdcff;
+    flex-direction: column;
+    border-radius: 4px;
+    min-height: 72px;
+    input::after {
+      content: ''
+    }
+    .imgPreview {
+      margin: 10px 0;
+      img {
+        width: 200px;
+        height: auto;
+      }
+    }
+  }
+}
