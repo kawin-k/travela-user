@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 import { MainLayout } from '../../components/layout'
 import { ButtonCurve } from '../../components/common'
 import './index.scss'
@@ -21,7 +22,9 @@ class Home extends Component {
               Make every trip in Thailand meaningful with TRAVELA. Get adventurous and complete missions given to you in your travel destination.
             </div>
             <img className="main-image" src="/static/assets/images/home-cover-01.png" />
-            <ButtonCurve className="get-start-button">Get started</ButtonCurve>
+            <Link to="/trips">
+              <ButtonCurve className="get-start-button">Get started</ButtonCurve>
+            </Link>
             <div className="how-to-title">
               How to play
             </div>

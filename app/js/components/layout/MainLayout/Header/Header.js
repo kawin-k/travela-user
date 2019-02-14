@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
+import { Link } from "react-router-dom";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+
 
 import { getUiConfig } from '../../../../lib/constants/firebaseUi'
 import './index.scss'
@@ -20,7 +22,7 @@ class Header extends Component {
     const { onSignOut } = this.props
 
     this.toggleNavbar()
-    
+
     if (onSignOut) {
       onSignOut()
     }
@@ -32,15 +34,16 @@ class Header extends Component {
     return !isSignedIn
       ? (
         <Fragment>
-          <NavItem>
-            <NavLink href="/home/">Home</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="/about/">About</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="/get-start/">Get start</NavLink>
-          </NavItem>
+          <Link to="/">
+            <NavItem>
+              Home
+            </NavItem>
+          </Link>
+          <Link to="/trips">
+            <NavItem>
+              Get start
+            </NavItem>
+          </Link>
           <NavItem>
             <div className="auth-button-wrapper">
               <StyledFirebaseAuth
@@ -53,18 +56,26 @@ class Header extends Component {
       )
       : (
         <Fragment>
-          <NavItem>
-            <NavLink href="/home/">Home</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="/reward/">Rewards</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="/ranking/">Ranking</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="/ranking/">Profile</NavLink>
-          </NavItem>
+          <Link to="/">
+            <NavItem>
+              Home
+            </NavItem>
+          </Link>
+          <Link to="/trips">
+            <NavItem>
+              Get start
+            </NavItem>
+          </Link>
+          <Link to="/reward">
+            <NavItem>
+              Rewards
+            </NavItem>
+          </Link>
+          <Link to="/profile">
+            <NavItem>
+              Profile
+            </NavItem>
+          </Link>
           <NavItem>
             <div className="facebook-logout-btn" onClick={this.onClickLogout}>
               Logout
@@ -77,9 +88,9 @@ class Header extends Component {
   render() {
     return (
       <div className="header-container">
-        <Navbar color="faded" fixed='top' light style={{ backgroundColor: 'white'}}>
+        <Navbar color="faded" fixed='top' light style={{ backgroundColor: 'white' }}>
           <NavbarBrand href="/" className="mr-auto">
-          <img src="/static/assets/images/logo.png" width="24" height="24" />
+            <img src="/static/assets/images/logo.png" width="24" height="24" />
             Travela
           </NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
