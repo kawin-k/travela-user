@@ -7,7 +7,7 @@ export const getUiConfig = firebase => ({
   // credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
   queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
   queryParameterForWidgetMode: 'mode',
-  signInFlow: 'redirect',// popup, redirect
+  signInFlow: 'popup',// popup, redirect
   signInOptions: [
     // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
