@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { MainLayout } from '../../components/layout'
-import { FeatureTripList, CardTrip} from '../../components/feature'
+import { FeatureTripList, CardTrip, PillFilterList} from '../../components/feature'
 import './index.scss'
 
 class Trips extends Component {
@@ -13,10 +13,20 @@ class Trips extends Component {
               Choose your Trip
             </div>
             <FeatureTripList />
-            <CardTrip />
-            <CardTrip />
-            <CardTrip />
-            <CardTrip />
+            <PillFilterList
+              optionList={['Bangkok', 'Chiang Mai']}
+            >
+              <div>
+                <h3>Bangkok</h3>
+                <CardTrip />
+                <CardTrip />
+              </div>
+              <div>
+                <h3>Chiang Mai</h3>
+                <CardTrip />
+                <CardTrip />
+              </div>
+            </PillFilterList>
           </div>
         </div>
       </MainLayout>

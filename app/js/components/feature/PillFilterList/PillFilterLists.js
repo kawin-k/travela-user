@@ -7,7 +7,11 @@ import './index.scss'
 class PillFilterList extends Component {
   static propTypes = {
     optionList: PropTypes.array.isRequired,
-    handlerOnSelectPill: PropTypes.func.isRequired,
+    handlerOnSelectPill: PropTypes.func,
+    children: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.string,
+    ]).isRequired
   }
 
   state = {
@@ -22,15 +26,15 @@ class PillFilterList extends Component {
       selectedIndex,
     })
 
-    const { handlerOnSelectPill, optionList } = this.props 
+    // const { handlerOnSelectPill, optionList } = this.props 
 
-    if (handlerOnSelectPill) {
-      const valueForCallBack = selectedIndex === -1
-        ? ''
-        : optionList[selectedIndex]
+    // if (handlerOnSelectPill) {
+    //   const valueForCallBack = selectedIndex === -1
+    //     ? ''
+    //     : optionList[selectedIndex]
 
-      handlerOnSelectPill(valueForCallBack)
-    }
+    //   handlerOnSelectPill(valueForCallBack)
+    // }
   }
 
   renderPillList = () => {
@@ -38,22 +42,39 @@ class PillFilterList extends Component {
     const { optionList } = this.props
 
     return (
-      optionList.map((option, index) => {
-        const isSelected = selectedIndex == index
-        
-        return (
-          <div
-            className={classNames(
-              'pill-filter-option-wrapper',
-              { active: isSelected }
-            )}
-            onClick={() => this.onSelectPill(index)}
-            key={index}
-          >
-            {option}
-          </div>
-        )
-      })
+      <div className="pill-filter-header-wrapper">
+        {
+          optionList.map((option, index) => {
+            const isSelected = selectedIndex == index
+            
+            return (
+              <div
+                className={classNames(
+                  'pill-filter-option',
+                  { active: isSelected }
+                )}
+                onClick={() => this.onSelectPill(index)}
+                key={index}
+              >
+                {option}
+              </div>
+            )
+          })
+        }
+      </div>
+    )
+  }
+
+  renderContent = () => {
+    const { children } = this.props
+    const { selectedIndex } = this.state
+
+    return (
+      <div className="pill-filter-content-wrapper">
+        {
+          selectedIndex === -1 ? children : children[selectedIndex]
+        }
+      </div>
     )
   }
 
@@ -61,6 +82,7 @@ class PillFilterList extends Component {
     return (
       <div className="pill-filter-list-container">
         {this.renderPillList()}
+        {this.renderContent()}
       </div>
     )
   }
