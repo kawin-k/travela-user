@@ -68,10 +68,7 @@ class LocationVerification extends Component {
 
   state = {
     isMarkerShown: false,
-    currentLocation: {
-      lat: 13.7563,
-      lng: 100.5017,
-    },
+    currentLocation: { lat: 0, lng: 0}
   }
 
   componentDidMount() {
@@ -98,18 +95,19 @@ class LocationVerification extends Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => {
-          const { currentLocation: { lat = 0, lng = 0} } = this.state
+          // const { currentLocation: { lat, lng} } = this.state
+          const { currentLocation } = this.state
           const { coords: { latitude, longitude } } = position
 
-          if ((lat !== latitude) && (lng !== longitude)) {
+          // if ((lat !== latitude) || (lng !== longitude)) {
             this.setState(prevState => ({
               currentLocation: {
                 ...prevState.currentLocation,
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
               }
-          }))
-          }
+            }))
+          // }
         }
       )
     }
@@ -117,7 +115,6 @@ class LocationVerification extends Component {
 
   onClickCheckIn = () => {
     const { currentLocation } = this.state
-    console.log('location:', currentLocation)
   }
 
   render() {
@@ -128,7 +125,7 @@ class LocationVerification extends Component {
       <div className="location-verification-container">
         <div className="google-map-wrapper">
           {
-            !!currentLocation
+            currentLocation
               ? (
                 <MyMapComponent
                   isCircle

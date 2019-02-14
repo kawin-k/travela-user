@@ -6,6 +6,7 @@ import './index.scss'
 
 class PillFilterList extends Component {
   static propTypes = {
+    defaultSelect: PropTypes.array,
     optionList: PropTypes.array.isRequired,
     handlerOnSelectPill: PropTypes.func,
     children: PropTypes.oneOfType([
@@ -14,38 +15,44 @@ class PillFilterList extends Component {
     ]).isRequired
   }
 
-  state = {
-    selectedIndex: -1
+  static defaultProps = {
+    defaultSelect: [],
   }
 
-  onSelectPill = (index) => {
-    const { selectedIndex: curSelectedIndex } = this.state
-    const selectedIndex = curSelectedIndex === index ? -1 : index
+  state = {
+    selected: [...this.props.defaultSelect]
+  }
+
+  onSelectPill = (val) => {
+    const { selected: curSelected } = this.state
+    const selected = curSelected.includes(val)
+      ? curSelected.filter(selected => selected !== val)
+      : [...curSelected, val]
 
     this.setState({
-      selectedIndex,
+      selected,
     })
 
     // const { handlerOnSelectPill, optionList } = this.props 
 
     // if (handlerOnSelectPill) {
-    //   const valueForCallBack = selectedIndex === -1
+    //   const valueForCallBack = selected === -1
     //     ? ''
-    //     : optionList[selectedIndex]
+    //     : optionList[selected]
 
     //   handlerOnSelectPill(valueForCallBack)
     // }
   }
 
   renderPillList = () => {
-    const { selectedIndex } = this.state
+    const { selected } = this.state
     const { optionList } = this.props
 
     return (
       <div className="pill-filter-header-wrapper">
         {
           optionList.map((option, index) => {
-            const isSelected = selectedIndex == index
+            const isSelected = selected.includes(option)
             
             return (
               <div
@@ -53,7 +60,7 @@ class PillFilterList extends Component {
                   'pill-filter-option',
                   { active: isSelected }
                 )}
-                onClick={() => this.onSelectPill(index)}
+                onClick={() => this.onSelectPill(option)}
                 key={index}
               >
                 {option}
@@ -66,13 +73,17 @@ class PillFilterList extends Component {
   }
 
   renderContent = () => {
-    const { children } = this.props
-    const { selectedIndex } = this.state
+    const { children, optionList } = this.props
+    const { selected } = this.state
+    
+    if (!selected.length) return
 
     return (
       <div className="pill-filter-content-wrapper">
         {
-          selectedIndex === -1 ? children : children[selectedIndex]
+          selected.length === optionList.length
+            ? children
+            : children[optionList.indexOf(selected[0])]
         }
       </div>
     )

@@ -5,12 +5,37 @@ import { FeatureTripList, CardTrip, PillFilterList} from '../../components/featu
 import tripsModule from '../../redux/modules/trips'
 import './index.scss'
 
+const keywordList = ['Bangkok', 'Chiang Mai']
+
 class Trips extends Component {
   componentDidMount() {
     this.props.getTripsRequest()
   }
+
+  renderCardTrip = (keyword) => {
+    const { trips } = this.props
+    if (!trips.length) return
+
+    const filteredTrips = trips.filter(trip => keyword === trip.keywords[0])
+    
+    return (
+      <div className="card-trip-list">
+        <h3 className="trip-keyword">{keyword}</h3>
+        {
+          filteredTrips.map(trip => (      
+            <CardTrip
+              key={trip.id}
+              tripName={trip.name}
+              point={trip.totalPoint}
+              srcImage={trip.coverPicture}
+            />
+          ))
+        }
+      </div>
+    )
+  }
+
   render() {
-    console.log(this.props.trips)
     return (
       <MainLayout>
         <div className="trips-page-container">
@@ -20,18 +45,11 @@ class Trips extends Component {
             </div>
             <FeatureTripList trips={this.props.trips}/>
             <PillFilterList
-              optionList={['Bangkok', 'Chiang Mai']}
+              defaultSelect={keywordList}
+              optionList={keywordList}
             >
-              <div>
-                <h3>Bangkok</h3>
-                <CardTrip />
-                <CardTrip />
-              </div>
-              <div>
-                <h3>Chiang Mai</h3>
-                <CardTrip />
-                <CardTrip />
-              </div>
+              {this.renderCardTrip(keywordList[0])}
+              {this.renderCardTrip(keywordList[1])}
             </PillFilterList>
           </div>
         </div>

@@ -1,0 +1,1 @@
+export const GET_TRIP_KEYWORD = 'GET_TRIP_KEYWORD'

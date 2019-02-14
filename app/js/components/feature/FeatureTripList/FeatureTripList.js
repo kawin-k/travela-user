@@ -10,10 +10,11 @@ class FeatureTripList extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       variableWidth: true
-    };
+    }
     const {
       trips,
     } = this.props
+
     return (
       <div className="feature-trip-list-container">
         <div className="title">
@@ -22,7 +23,7 @@ class FeatureTripList extends Component {
         <Slider {...settings}>
           {
             trips.map((trip, index) => (
-              <div key={index}>
+              <div key={trip.id}>
                 <CardFeatureTrip
                   tripName={trip.name}
                   expirationDate={'1 Jan 2020'}

@@ -2,15 +2,12 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import { MainLayout } from '../../components/layout'
 import { ButtonCurve } from '../../components/common'
-import { LocationVerification, PhotoVerification } from '../../components/feature'
 import './index.scss'
 
 class Home extends Component {
   render() {
     return (
       <MainLayout>
-        <LocationVerification />
-        <PhotoVerification />
         <div className="home-page-container">
           <div className="container">
             <div className="main-title">
