@@ -5,10 +5,6 @@ import { ButtonCurve } from '../../components/common'
 import './index.scss'
 
 class Home extends Component {
-  handlerOnSelectPillFilterList = (filterName) => {
-    console.log('filterName', filterName)
-  }
-
   render() {
     return (
       <MainLayout>
