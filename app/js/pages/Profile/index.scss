@@ -1,0 +1,126 @@
+.profile-page-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #445fba;
+  .user-profile-wrapper {
+    display: flex;
+    padding: 8px 24px;
+    margin-bottom: 24px;
+
+    .user-profile-photo-wrapper {
+      margin-right: 16px;
+      .user-profile-photo {
+        border-radius: 50%;
+        width: 104px;
+      }
+    }
+    .user-profile-detail {
+      h4 {
+        font-family: Nunito;
+        font-size: 20px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        color: #1c1868;
+      }
+      label {
+        font-family: Nunito;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.38;
+        letter-spacing: normal;
+        color: #4860b4;
+      }
+      .user-profile-level {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 66px;
+        height: 20px;
+        border-radius: 12.5px;
+        background-color: #fd6524;
+        label {
+          margin: 0;
+          font-family: Nunito;
+          font-size: 14px;
+          font-weight: 800;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.29;
+          letter-spacing: normal;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  .user-travel-value-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+
+    .user-travel-value {
+      width: 104px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      .travel-value {
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 1;
+        text-align: center;
+        color: #4e2fc1;
+      }
+      .travel-unit {
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.38;
+        letter-spacing: normal;
+        text-align: center;
+        color: #445fba;
+      }
+    }
+  }
+}
+
+.user-on-going-trip {
+  padding: 32px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: #1a1b64;
+}
+
+.user-completed-trip {
+  padding: 32px 16px;
+  .user-completed-trip-header {
+    font-size: 28px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    color: #1c1868;
+    margin-bottom: 24px;
+  }
+
+  label {
+    font-size: 16px;
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #443bb3;
+  }
+}

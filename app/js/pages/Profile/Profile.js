@@ -1,14 +1,79 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { MainLayout } from '../../components/layout'
+
+import userDetailModule from '../../redux/modules/userDetail'
 import './index.scss'
 
 class Profile extends Component {
-  render() {
+  renderLevel = () => {
     return (
-      <div className="profile-page-container">
-        Profile Page
+      <div className="user-profile-level">
+        <label>Level 1</label>
       </div>
+    ) 
+  }
+
+  renderTravelValue = (value, unit) => {
+    return (
+      <div className="user-travel-value">
+        <div className="travel-value">{value}</div>
+        <div className="travel-unit">{unit}</div>
+      </div>
+    )
+  }
+
+  render() {
+    const { userDetail } = this.props
+    console.log(userDetail)
+    if (!userDetail) {
+      return (
+        <div>
+          Loading...
+        </div>
+      )
+    }
+
+    return (
+      <MainLayout>
+        <div className="profile-page-container">
+          <div className="user-profile-wrapper">
+            <div className="user-profile-photo-wrapper">
+              <img
+                className="user-profile-photo"
+                src={userDetail.photoURL}
+              />
+            </div>
+            <div className="user-profile-detail">
+              <h4>{userDetail.displayName}</h4>
+              <label>Bangkok, Thailand</label>
+              { this.renderLevel() }
+            </div>
+          </div>
+          <div className="user-travel-value-wrapper">
+            {this.renderTravelValue('100', 'Points')}
+            {this.renderTravelValue('1', 'Trip')}
+            {this.renderTravelValue('1', 'Mission')}
+          </div>
+        </div>
+        <div className="user-on-going-trip">
+          On goingTrips
+        </div>
+        <div className="user-completed-trip">
+          <div className="user-completed-trip-header">
+            Completed Trips
+          </div>
+          <label>
+            No completed trip
+          </label>
+        </div>
+      </MainLayout>
     )
   }
 }
 
-export default Profile
+const mapStateToProps = state => ({
+  userDetail: userDetailModule.selector.getUserDetail(state),
+})
+
+export default connect(mapStateToProps, null)(Profile)

@@ -9,10 +9,6 @@ class PhotoVerification extends Component {
     file: null,
     imagePreviewUrl: null,
   }
-  
-  componentDidMount() {
-    //
-  }
 
   onUploadFile = (evt) => {
     evt.preventDefault();
