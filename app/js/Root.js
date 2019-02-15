@@ -18,10 +18,10 @@ class Root extends Component {
       <Router>
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/trip-detail-:id' component={TripDetail} />
+          <Route path='/trip-detail-:tid' component={TripDetail} />
           <Route path='/login' exact component={Login} />
           <Route path='/medal-list' exact component={MedalList} />
-          <Route path='/mission-verification' exact component={MissionVerification} />
+          <Route path='/mission-verification-:tid-:mid' exact component={MissionVerification} />
           <Route path='/profile' exact component={Profile} />
           <Route path='/reward' exact component={Reward} />
           <Route path='/trips' exact component={Trips} />
