@@ -5,8 +5,8 @@ import './index.scss'
 class SubMission extends Component {
   render() {
     const {
-      objective = 'objective text',
-      point = 60,
+      objective = 'Objective sub mission',
+      point = 999,
       status = 'pass'
     } = this.props
     return (
