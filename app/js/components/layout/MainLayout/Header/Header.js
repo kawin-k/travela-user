@@ -1,15 +1,28 @@
 import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
 import { Link } from "react-router-dom";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
-
+import userDetailModule from '../../../../redux/modules/userDetail'
+import firebaseApp from '../../../../services/firebase'
 import { getUiConfig } from '../../../../lib/constants/firebaseUi'
 import './index.scss'
 
 class Header extends Component {
   state = {
     collapsed: true
+  }
+
+  componentDidMount() {
+    // create auth observer
+    const { storeUserDetail } = this.props
+
+    this.unregisterAuthObserver = firebaseApp.auth().onAuthStateChanged(
+      (user) => {
+        storeUserDetail(user)
+      }
+    )
   }
 
   toggleNavbar = () => {
@@ -105,4 +118,8 @@ class Header extends Component {
   }
 }
 
-export default Header
+const mapDispatchToProps = {
+  storeUserDetail: userDetailModule.action.storeUserDetail,
+}
+
+export default connect(null, mapDispatchToProps)(Header)

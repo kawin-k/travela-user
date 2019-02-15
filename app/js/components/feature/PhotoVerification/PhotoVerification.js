@@ -9,25 +9,27 @@ class PhotoVerification extends Component {
     file: null,
     imagePreviewUrl: null,
   }
+  
+  componentDidMount() {
+    //
+  }
 
   onUploadFile = (evt) => {
     evt.preventDefault();
 
     let reader = new FileReader()
     const file = evt.target.files[0]
-    const photoUrl = reader.readAsDataURL(file)
-    
+    reader.readAsDataURL(file)
+
     reader.onloadend = () => {
       this.setState({
         file,
         imagePreviewUrl: [reader.result]
       })
     }
-    
-    console.log(photoUrl)
   }
 
-  uploadFile = () => {
+  uploadToFirebase = () => {
     const { file } = this.state
     if (!file) return
 
@@ -50,7 +52,7 @@ class PhotoVerification extends Component {
   }
 
   onRemovePhoto = () => {
-    this.setState({ imagePreviewUrl: null })
+    this.setState({ file: null, imagePreviewUrl: null })
   }
 
   renderUploadFileButton = () => {
@@ -72,7 +74,7 @@ class PhotoVerification extends Component {
   }
 
   renderImageContent = () => {
-    const { imagePreviewUrl, file } = this.state
+    const { imagePreviewUrl } = this.state
 
     return (
       <div className='imgPreview'>
@@ -84,22 +86,20 @@ class PhotoVerification extends Component {
         </div>
         <img 
           src={imagePreviewUrl}
-          // onError={}
         />
-        
       </div>
     )
   }
 
   render() {
-    const { imagePreviewUrl } = this.state
+    const { imagePreviewUrl, file } = this.state
 
     return (
       <div className="photo-verification-container">
         Upload photo ...
         <div className="photo-verification-wrapper">
           { 
-            !imagePreviewUrl
+            !file
               ? this.renderUploadFileButton()
               : this.renderImageContent()
           }

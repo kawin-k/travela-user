@@ -9,6 +9,7 @@ import {
 } from '../../components/feature'
 import { ButtonCurve, Tab } from '../../components/common'
 import tripDetailModule from '../../redux/modules/tripDetail'
+import userDetailModule from '../../redux/modules/userDetail'
 import './index.scss'
 
 class TripDetail extends Component {
@@ -21,8 +22,12 @@ class TripDetail extends Component {
   }
   render() {
     const {
-      tripDetail
+      tripDetail,
+      userDetail,
     } = this.props
+
+    console.log(userDetail)
+
     return (
       <MainLayout>
         <div className="trip-detail-page-container">
@@ -56,8 +61,10 @@ class TripDetail extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  tripDetail: tripDetailModule.selector.getTripDetail(state)
+  tripDetail: tripDetailModule.selector.getTripDetail(state),
+  userDetail: userDetailModule.selector.getUserDetail(state),
 })
+
 const mapDispatchToProps = {
   getTripDetailRequest: tripDetailModule.action.getTripDetail.request,
 }
