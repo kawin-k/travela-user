@@ -14,20 +14,17 @@ class PhotoVerification extends Component {
     evt.preventDefault();
 
     let reader = new FileReader()
-    let file = evt.target.files[0]
-    console.log('file', file, reader)
-
+    const file = evt.target.files[0]
+    const photoUrl = reader.readAsDataURL(file)
+    
     reader.onloadend = () => {
       this.setState({
         file,
-        imagePreviewUrl: reader.result
+        imagePreviewUrl: [reader.result]
       })
     }
-
-    reader.readAsDataURL(file)
-
-    // const file = evt.target.files[0]
-    // this.setState({ file })
+    
+    console.log(photoUrl)
   }
 
   uploadFile = () => {
@@ -75,7 +72,7 @@ class PhotoVerification extends Component {
   }
 
   renderImageContent = () => {
-    const { imagePreviewUrl } = this.state
+    const { imagePreviewUrl, file } = this.state
 
     return (
       <div className='imgPreview'>
@@ -86,8 +83,7 @@ class PhotoVerification extends Component {
           <img src="/static/assets/images/remove-photo.png" />
         </div>
         <img 
-          src={imagePreviewUrl} 
-          alt='' 
+          src={imagePreviewUrl}
           // onError={}
         />
         

@@ -63,7 +63,7 @@ class Header extends Component {
           </Link>
           <Link to="/trips">
             <NavItem>
-              Get start
+              Get started
             </NavItem>
           </Link>
           <Link to="/reward">
