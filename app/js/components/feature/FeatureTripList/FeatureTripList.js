@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Slider from "react-slick";
 import { CardFeatureTrip } from '../'
+import { Link } from "react-router-dom";
 import './index.scss'
 
 class FeatureTripList extends Component {
@@ -9,8 +10,9 @@ class FeatureTripList extends Component {
       className: "slider",
       slidesToShow: 1,
       slidesToScroll: 1,
-      variableWidth: true
-    }
+      variableWidth: true,
+      infinite: false,
+    };
     const {
       trips,
     } = this.props
@@ -23,14 +25,15 @@ class FeatureTripList extends Component {
         <Slider {...settings}>
           {
             trips.map((trip, index) => (
-              <div key={trip.id}>
-                <CardFeatureTrip
-                  tripName={trip.name}
-                  expirationDate={'1 Jan 2020'}
-                  location={trip.keywords[0]}
-                  point={trip.totalPoint}
-                  srcImage={trip.coverPicture} 
-                />
+              <div key={index}>
+                <Link to={`/trip-detail-${trip.id}`}>
+                  <CardFeatureTrip
+                    tripName={trip.name}
+                    location={trip.keywords[0]}
+                    point={trip.totalPoint}
+                    srcImage={trip.coverPicture}
+                  />
+                </Link>
               </div>
             ))
           }

@@ -3,12 +3,16 @@ import { CardMission } from '../../'
 
 import './index.scss'
 
-const TripMissionList = () => {
+const TripMissionList = ({ missions = [] }) => {
   return (
     <div className="trip-mission-list-wrapper">
-      <CardMission />
-      <CardMission />
-      <CardMission />
+    {
+      missions.map((mission, index) => (
+        <div className="trip-mission-wrapper" key={index}>
+          <CardMission mission={mission}/>
+        </div>
+      ))
+    }
     </div>
   )
 }
