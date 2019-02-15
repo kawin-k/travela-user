@@ -21,7 +21,7 @@ class Root extends Component {
           <Route path='/trip-detail-:tid' component={TripDetail} />
           <Route path='/login' exact component={Login} />
           <Route path='/medal-list' exact component={MedalList} />
-          <Route path='/mission-verification-:tid-:mid' exact component={MissionVerification} />
+          <Route path='/mission-verification' component={MissionVerification} />
           <Route path='/profile' exact component={Profile} />
           <Route path='/reward' exact component={Reward} />
           <Route path='/trips' exact component={Trips} />

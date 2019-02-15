@@ -7,10 +7,11 @@ import './index.scss'
 
 class ButtonCurve extends Component {
   render() {
-    const { children, disabled = false, className } = this.props
+    const { children, disabled = false, className, onClick,...props } = this.props
+    console.log(...props)
     return (
       <div className={classNames("button-curve", className)}>
-        <Button color="primary" disabled={disabled}>{children}</Button>
+        <Button color="primary" disabled={disabled} onClick={onClick} {...props}>{children}</Button>
       </div>
     )
   }

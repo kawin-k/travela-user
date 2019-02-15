@@ -24,9 +24,8 @@ class Trips extends Component {
         <h3 className="trip-keyword">{keyword}</h3>
         {
           filteredTrips.map(trip => (
-            <Link to={`/trip-detail-${trip.id}`}>
+            <Link to={`/trip-detail-${trip.id}`} key={trip.id}>
               <CardTrip
-                key={trip.id}
                 tripName={trip.name}
                 point={trip.totalPoint}
                 srcImage={trip.coverPicture}

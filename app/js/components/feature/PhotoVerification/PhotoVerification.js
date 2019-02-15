@@ -92,7 +92,6 @@ class PhotoVerification extends Component {
 
     return (
       <div className="photo-verification-container">
-        Upload photo ...
         <div className="photo-verification-wrapper">
           { 
             !file

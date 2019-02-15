@@ -4,6 +4,7 @@
   height: 100%;
   .container {
     text-align: center;
+    margin-bottom: 40px;
     .main-title {
       margin-top: 60px;
       color: #1e146d;
@@ -54,10 +55,25 @@
     }
     .how-to-no-3 {
       margin-top: 20px;
-      margin-bottom: 50px;
       color: #443bb3;
       font-size: 20px;
       line-height: 32px;
+    }
+    .how-to-no-3-image {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 300px;
+    }
+    .how-to-no-4 {
+      margin-top: 20px;
+      color: #443bb3;
+      font-size: 20px;
+      line-height: 32px;
+    }
+    .how-to-no-4-image {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 300px;
     }
   }
 }

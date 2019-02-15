@@ -7,27 +7,30 @@ import * as actions from './action'
 
 import { staticAPI } from '../../../lib/constants/api'
 
-const getTripDetailEpic = (action$, state$, { callStaticAPI }) => action$.pipe(
-  ofType(type.GET_TRIP_DETAIL.REQUEST),
+const addMyTripEpic = (action$, state$, { callStaticAPI }) => action$.pipe(
+  ofType(type.ADD_MY_TRIP.REQUEST),
   mergeMap((action) => {
-    const [method, url] = staticAPI.trips
+    const [method, url] = staticAPI.addMyTrip
     const state = state$.value
     const {
-      id,
+      tid,
+      uid,
     } = action.params
+    console.log(tid,uid)
     return callStaticAPI({
-      url: `${url}/${id}`,
+      url,
       method,
       body: {
-        status: 'published',
+        tripId: tid,       
       },
       headers: {
         "X-User": uid,
+        'Content-Type': 'application/json',
       },
     }).pipe(
-      map(result => actions.getTripDetail.success(result.response.data))
+      map(result => actions.addMyTrip.success(result.response.data))
     )
   })
 )
 
-export default getTripDetailEpic
+export default addMyTripEpic

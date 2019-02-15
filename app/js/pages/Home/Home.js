@@ -35,6 +35,14 @@ class Home extends Component {
             <div className="how-to-no-3">
               3. Level Up &amp; Earn Rewards
             </div>
+            <img className="how-to-no-3-image" src="/static/assets/images/home-cover-04.png" />
+            <div className="how-to-no-4">
+              4. Look back on your trip on your Travel Profile
+            </div>
+            <img className="how-to-no-4-image" src="/static/assets/images/home-cover-05.png" />
+            <Link to="/trips">
+              <ButtonCurve className="get-start-button">Get started</ButtonCurve>
+            </Link>
           </div>
         </div>
       </MainLayout>

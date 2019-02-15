@@ -10,4 +10,5 @@ const host = 'https://us-central1-travela-dev-54075.cloudfunctions.net'
 // static API
 export const staticAPI = {
   trips: ['GET', `${host}/trips`],
+  addMyTrip: ['POST', `${host}/myTrips`],
 }

@@ -95,7 +95,7 @@ class LocationVerification extends Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => {
-          // const { currentLocation: { lat, lng} } = this.state
+          const { currentLocation: { lat, lng} } = this.state
           const { currentLocation } = this.state
           const { coords: { latitude, longitude } } = position
 
@@ -140,9 +140,9 @@ class LocationVerification extends Component {
               )
           }
         </div>
-        <div className="location-check-in">
+        {/* <div className="location-check-in">
           <Button onClick={this.onClickCheckIn} disabled={!currentLocation}>Check in</Button>
-        </div>
+        </div> */}
       </div>
     )
   }
