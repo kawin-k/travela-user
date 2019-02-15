@@ -12,6 +12,7 @@ import ShareToFacebook from './ShareToFacebook'
 import Submission from './SubMission'
 import {TripDescription, TripMissionList}  from './TripDetailContainer'
 import TripList from './TripList'
+import OnGoingTripList from './OnGoingTripList'
 
 export {
   CardFeatureTrip,
@@ -29,4 +30,5 @@ export {
   TripDescription,
   TripMissionList,
   TripList,
+  OnGoingTripList,
 }

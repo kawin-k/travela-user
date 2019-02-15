@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { MainLayout } from '../../components/layout'
+import { OnGoingTripList } from '../../components/feature'
 
 import userDetailModule from '../../redux/modules/userDetail'
 import './index.scss'
@@ -24,8 +25,8 @@ class Profile extends Component {
   }
 
   render() {
-    const { userDetail } = this.props
-    console.log(userDetail)
+    const { userDetail, trips = [] } = this.props
+
     if (!userDetail) {
       return (
         <div>
@@ -57,7 +58,18 @@ class Profile extends Component {
           </div>
         </div>
         <div className="user-on-going-trip">
-          On goingTrips
+          <div className="user-on-going-trip-header">
+            On goingTrips
+          </div>
+          {
+            !trips.length
+              ? (
+                <label>
+                  No completed trip
+                </label>
+              )
+              : (<OnGoingTripList trips={trips}/>)
+          }
         </div>
         <div className="user-completed-trip">
           <div className="user-completed-trip-header">

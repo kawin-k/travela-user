@@ -4,13 +4,10 @@ import { MainLayout } from '../../components/layout'
 import { ButtonCurve } from '../../components/common'
 import './index.scss'
 
-import { PhotoVerification } from '../../components/feature'
-
 class Home extends Component {  
   render() {
     return (
       <MainLayout>
-        <PhotoVerification />
         <div className="home-page-container">
           <div className="container">
             <div className="main-title">
