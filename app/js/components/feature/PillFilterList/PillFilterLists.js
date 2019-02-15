@@ -20,7 +20,8 @@ class PillFilterList extends Component {
   }
 
   state = {
-    selected: [...this.props.defaultSelect]
+    selected: []
+    // selected: [...this.props.defaultSelect]
   }
 
   onSelectPill = (val) => {
@@ -76,12 +77,10 @@ class PillFilterList extends Component {
     const { children, optionList } = this.props
     const { selected } = this.state
     
-    if (!selected.length) return
-
     return (
       <div className="pill-filter-content-wrapper">
         {
-          selected.length === optionList.length
+          selected.length === optionList.length || selected.length === 0
             ? children
             : children[optionList.indexOf(selected[0])]
         }
