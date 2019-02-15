@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from "react-router-dom";
 import { MainLayout } from '../../components/layout'
-import { FeatureTripList, CardTrip, PillFilterList} from '../../components/feature'
+import { FeatureTripList, CardTrip, PillFilterList } from '../../components/feature'
 import tripsModule from '../../redux/modules/trips'
 import './index.scss'
 
@@ -17,18 +18,20 @@ class Trips extends Component {
     if (!trips.length) return
 
     const filteredTrips = trips.filter(trip => keyword === trip.keywords[0])
-    
+
     return (
       <div className="card-trip-list">
         <h3 className="trip-keyword">{keyword}</h3>
         {
-          filteredTrips.map(trip => (      
-            <CardTrip
-              key={trip.id}
-              tripName={trip.name}
-              point={trip.totalPoint}
-              srcImage={trip.coverPicture}
-            />
+          filteredTrips.map(trip => (
+            <Link to={`/trip-detail-${trip.id}`}>
+              <CardTrip
+                key={trip.id}
+                tripName={trip.name}
+                point={trip.totalPoint}
+                srcImage={trip.coverPicture}
+              />
+            </Link>
           ))
         }
       </div>
@@ -43,7 +46,7 @@ class Trips extends Component {
             <div className="main-title">
               Choose your Trip
             </div>
-            <FeatureTripList trips={this.props.trips}/>
+            <FeatureTripList trips={this.props.trips} />
             <PillFilterList
               defaultSelect={keywordList}
               optionList={keywordList}

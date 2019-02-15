@@ -17,7 +17,7 @@ class TripDetail extends Component {
       getTripDetailRequest,
       match
     } = this.props
-    this.props.getTripDetailRequest({id: match.params.id})
+    this.props.getTripDetailRequest({id: match.params.tid})
   }
   render() {
     const {

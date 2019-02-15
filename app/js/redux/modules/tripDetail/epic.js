@@ -13,9 +13,8 @@ const getTripDetailEpic = (action$, state$, { callStaticAPI }) => action$.pipe(
     const [method, url] = staticAPI.trips
     const state = state$.value
     const {
-      id
+      id,
     } = action.params
-
     return callStaticAPI({
       url: `${url}/${id}`,
       method,
