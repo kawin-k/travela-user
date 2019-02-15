@@ -2,22 +2,49 @@
   margin: 10px;
 
   .photo-verification-wrapper {
-    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
     border: 1px dotted #ccdcff;
-    flex-direction: column;
     border-radius: 4px;
     min-height: 72px;
-    input::after {
-      content: ''
+    
+    .upload-photo-wrapper {
+      label {
+        img {
+          width: 24px;
+          height: 24px;
+          margin-right: 5px;
+        }
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.38;
+        letter-spacing: normal;
+        color: #443bb3;
+        margin: 0;
+      }
+      input {
+        display: none;
+      }
     }
+
     .imgPreview {
-      margin: 10px 0;
+      position: relative;
+      .delete-photo {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        img {
+          height: 24px;
+          width: 24px;
+        }
+      }
       img {
         width: 200px;
-        height: auto;
+        height: 100%;
       }
     }
   }

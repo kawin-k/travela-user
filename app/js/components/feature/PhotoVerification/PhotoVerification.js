@@ -7,6 +7,7 @@ import './index.scss'
 class PhotoVerification extends Component {
   state = {
     file: null,
+    imagePreviewUrl: null,
   }
 
   onUploadFile = (evt) => {
@@ -18,7 +19,7 @@ class PhotoVerification extends Component {
 
     reader.onloadend = () => {
       this.setState({
-        file: file,
+        file,
         imagePreviewUrl: reader.result
       })
     }
@@ -51,25 +52,61 @@ class PhotoVerification extends Component {
     )
   }
 
+  onRemovePhoto = () => {
+    this.setState({ imagePreviewUrl: null })
+  }
+
+  renderUploadFileButton = () => {
+    return(
+      <div className='upload-photo-wrapper'>
+        <label htmlFor='capture-photo'>
+          <img src="/static/assets/images/add-photo.png" />
+          Attach picture
+        </label>
+        <input
+          id="capture-photo"
+          type="file"
+          accept="image/*"
+          capture="camera"
+          onChange={this.onUploadFile}
+          />
+      </div>
+    )
+  }
+
+  renderImageContent = () => {
+    const { imagePreviewUrl } = this.state
+
+    return (
+      <div className='imgPreview'>
+        <div 
+          onClick={this.onRemovePhoto} 
+          className='delete-photo'
+        >
+          <img src="/static/assets/images/remove-photo.png" />
+        </div>
+        <img 
+          src={imagePreviewUrl} 
+          alt='' 
+          // onError={}
+        />
+        
+      </div>
+    )
+  }
+
   render() {
-    let { imagePreviewUrl } = this.state
+    const { imagePreviewUrl } = this.state
 
     return (
       <div className="photo-verification-container">
         Upload photo ...
         <div className="photo-verification-wrapper">
-          <input
-            type="file"
-            accept="image/*"
-            id="capture"
-            capture="camera"
-            onChange={this.onUploadFile}
-          />
-          <div className="imgPreview">
-            {
-              imagePreviewUrl && (<img src={imagePreviewUrl} />)
-            }
-          </div>
+          { 
+            !imagePreviewUrl
+              ? this.renderUploadFileButton()
+              : this.renderImageContent()
+          }
           {/* <Button onClick={this.uploadFile}>Upload</Button> */}
         </div>
       </div>
