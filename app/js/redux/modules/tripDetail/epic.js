@@ -14,6 +14,7 @@ const getTripDetailEpic = (action$, state$, { callStaticAPI }) => action$.pipe(
     const state = state$.value
     const {
       id,
+      uid,
     } = action.params
     return callStaticAPI({
       url: `${url}/${id}`,

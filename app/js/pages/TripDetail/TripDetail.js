@@ -22,7 +22,7 @@ class TripDetail extends Component {
       match,
       userDetail,
     } = this.props
-    getTripDetailRequest({ id: match.params.tid, uid: userDetail.uid })
+    getTripDetailRequest({ id: match.params.tid, uid: _.get(userDetail, 'uid', '') })
   }
   componentDidUpdate(prevProps) {
     const { 
@@ -34,7 +34,7 @@ class TripDetail extends Component {
     if (prevProps.isLoadingAddMyTrip !== isLoadingAddMyTrip && !isLoadingAddMyTrip) {
       alert("Your mission has begun");
       setTimeout(() => {
-        getTripDetailRequest({ id: match.params.tid, uid: userDetail.uid })
+        getTripDetailRequest({ id: match.params.tid, uid: _.get(userDetail, 'uid', '') })
       }, 1500)
     }
   }
